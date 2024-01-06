@@ -2,15 +2,17 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/src/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
+  "type":"module",
   "license": "ISC",
   "dependencies": {
     "sqlite3": "^5.1.7",
+    "tsc": "^2.0.4",
     "typeorm": "^0.3.19"
   }
 }
