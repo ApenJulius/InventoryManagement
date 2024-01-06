@@ -1,13 +1,29 @@
 import { Entity, Column, PrimaryGeneratedColumn } from "typeorm"
 
 @Entity()
-export class User {
+export class Products {
     @PrimaryGeneratedColumn()
     id: number
 
     @Column()
-    firstName: string
+    name: string
 
     @Column()
-    lastName: string
+    identifier: string
+
+    @Column()
+    status: string
+
+    @Column()
+    borrower: string
+
+    @Column()
+    lendingDate: Date
+
+    @Column()
+    lendingExpiration: Date
+
+    @Column()
+    returnDate: Date
+
 }

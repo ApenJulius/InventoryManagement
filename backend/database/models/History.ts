@@ -1,13 +1,23 @@
-import { Entity, Column, PrimaryGeneratedColumn } from "typeorm"
+import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn } from "typeorm"
 
 @Entity()
-export class User {
+export class History {
     @PrimaryGeneratedColumn()
     id: number
 
     @Column()
-    firstName: string
+    type: string
+
+    @CreateDateColumn()
+    entryDate: date
 
     @Column()
-    lastName: string
+    item: string
+
+    @Column()
+    borrower: string
+
+    @Column()
+    byAccount: string
+
 }
