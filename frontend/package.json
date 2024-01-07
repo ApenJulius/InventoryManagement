@@ -41,6 +41,7 @@
     ]
   },
   "devDependencies": {
+    "html5-qrcode": "^2.3.8",
     "react-router-dom": "^6.21.1"
   }
 }
