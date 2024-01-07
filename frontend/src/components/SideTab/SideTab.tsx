@@ -1,32 +1,37 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-const SideTab: React.FC = () => {
+import './SideTab.css';
+import QRScanner from '../QRScanner/QRScanner';
+
+interface IUser {
+    name: string;
+    role: string;
+}
+
+const SideTab: React.FC<IUser> = ({ name, role }) => {
     // Add your component logic here
-    const user = 'Karl Karlsen';
-    const role = 'Admin';
     return ( 
         <>
             <div style={{ display:'flex', width:'180px', position:'absolute', backgroundColor:'grey', flexDirection:'column' }}>
                 <div style={{ height:'60px', backgroundColor:'lightblue' }}>
-                    {user}
+                    {name}
                     <br />
                     {role}
                 </div>
                 <div style={{ display:'flex', flexDirection:'column', position:'relative' }}>
-                    <button style={{ height:'20px', width:'20px' }}>
-                    overview
+                    <button className='sidebar-button'>
+                        overview
                     </button>
-                    <button style={{ height:'20px', width:'20px' }}>
-                    History
+                    <button className='sidebar-button'>
+                        History
                     </button>
-                    <button style={{ height:'20px', width:'20px', }}>
-                    QR SCAN
+                    <QRScanner />
+                    <button className='sidebar-button qr-button'>
                     </button>
                 </div>
             </div>
             <Outlet />
         </>
-
     );
 };
 
