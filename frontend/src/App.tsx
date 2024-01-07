@@ -1,6 +1,6 @@
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Main from './pages/Main';
+import Main from './pages/Main/Main';
 import ProfileButton from './components/ProfileButton/ProfileButton';
 import SideTab from './components/SideTab/SideTab';
 

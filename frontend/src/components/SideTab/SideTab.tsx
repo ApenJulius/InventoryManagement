@@ -26,8 +26,6 @@ const SideTab: React.FC<IUser> = ({ name, role }) => {
                         History
                     </button>
                     <QRScanner />
-                    <button className='sidebar-button qr-button'>
-                    </button>
                 </div>
             </div>
             <Outlet />

@@ -30,14 +30,12 @@ const QRScanner: React.FC = () => {
     }, []);
 
     return ( 
-        <>
-            <div>
-                {scanResult
-                    ? <p>RESULT: {scanResult}</p>
-                    : <div id="reader">Scan a QR code</div>
-                }
-            </div>
-        </>
+        <div>
+            {scanResult
+                ? <p>RESULT: {scanResult}</p>
+                : <div id="reader">Scan a QR code</div>
+            }
+        </div>
     );
 };
 
