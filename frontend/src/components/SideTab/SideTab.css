@@ -1,0 +1,10 @@
+.sidebar-button { 
+    height:80px; 
+    width:80px;
+    margin: 10px;
+ } 
+
+ .qr-button { 
+    background-image: url("QRIcon.png");
+    background-size: contain;
+ }

@@ -9,7 +9,7 @@ function App() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<SideTab />}>
+                <Route path="/" element={<SideTab name="Karl Karlsen" role="Admin" />}>
                     <Route index element={<Main />} />
                 </Route>
                 <Route path='account' element={<Main />} />
