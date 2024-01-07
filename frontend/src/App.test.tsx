@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import App from './App';
-import Main from './pages/Main';
+import Main from './pages/Main/Main';
 
 test('renders learn react link', () => {
     render(<App />);
