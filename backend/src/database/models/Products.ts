@@ -1,4 +1,5 @@
-import { Entity, Column, PrimaryGeneratedColumn, BaseEntity } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, ManyToOne } from 'typeorm';
+import { Customers } from './Users';
 
 @Entity()
 export class Products extends BaseEntity {
@@ -17,7 +18,7 @@ export class Products extends BaseEntity {
     @Column()
         status: string;
 
-    @Column()
+    @ManyToOne(() => Customers, customer => customer.borrowing)
         borrower: string;
 
     @Column({ type: 'datetime' })
