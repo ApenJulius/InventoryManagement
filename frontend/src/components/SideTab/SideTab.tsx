@@ -9,6 +9,7 @@ interface IUser {
 }
 
 const SideTab: React.FC<IUser> = ({ name, role }) => {
+    const [showQR, setShowQR] = React.useState(false);
     // Add your component logic here
     return ( 
         <>
@@ -25,7 +26,14 @@ const SideTab: React.FC<IUser> = ({ name, role }) => {
                     <button className='sidebar-button'>
                         History
                     </button>
-                    <QRScanner />
+                    <button className='sidebar-button qr-button'>
+                        History
+                    </button>
+                    {
+                        showQR ?
+                            <QRScanner />
+                            : null
+                    }
                 </div>
             </div>
             <Outlet />
