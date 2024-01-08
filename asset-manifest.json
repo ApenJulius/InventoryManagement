@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/InventoryManagement/static/css/main.95469420.css",
-    "main.js": "/InventoryManagement/static/js/main.b1da89cf.js",
-    "static/js/787.9e9f4ffd.chunk.js": "/InventoryManagement/static/js/787.9e9f4ffd.chunk.js",
-    "index.html": "/InventoryManagement/index.html",
-    "main.95469420.css.map": "/InventoryManagement/static/css/main.95469420.css.map",
-    "main.b1da89cf.js.map": "/InventoryManagement/static/js/main.b1da89cf.js.map",
-    "787.9e9f4ffd.chunk.js.map": "/InventoryManagement/static/js/787.9e9f4ffd.chunk.js.map"
+    "main.css": "'http://localhost:3000';/static/css/main.95469420.css",
+    "main.js": "'http://localhost:3000';/static/js/main.af3e658a.js",
+    "static/js/787.9e9f4ffd.chunk.js": "'http://localhost:3000';/static/js/787.9e9f4ffd.chunk.js",
+    "index.html": "'http://localhost:3000';/index.html",
+    "main.95469420.css.map": "'http://localhost:3000';/static/css/main.95469420.css.map",
+    "main.af3e658a.js.map": "'http://localhost:3000';/static/js/main.af3e658a.js.map",
+    "787.9e9f4ffd.chunk.js.map": "'http://localhost:3000';/static/js/787.9e9f4ffd.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.95469420.css",
-    "static/js/main.b1da89cf.js"
+    "static/js/main.af3e658a.js"
   ]
 }
