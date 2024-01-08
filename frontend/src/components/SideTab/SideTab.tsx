@@ -30,15 +30,17 @@ const SideTab: React.FC<IUser> = ({ name, role }) => {
                     <button className='sidebar-button'>
                         History
                     </button>
-                    <button onClick={toggleQR} className='sidebar-button qr-button'>
-                    </button>
+                    
                     {
                         showQR ?
                             <QRScanner onOutsideClick={toggleQR} onScan={toggleQR}/>
                             : null
                     }
                 </div>
+                <button onClick={toggleQR} className='sidebar-button qr-button'>
+                </button>
             </div>
+
             <Outlet />
         </>
     );

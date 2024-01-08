@@ -8,6 +8,13 @@
    flex-grow: 1;
    flex-basis: 0;
    flex-shrink: 0;
+   border:black solid 1px;
+   padding:1em;
+   margin:1em;
+   min-height: 80vh;
+   display: flex; 
+   flex-direction: column;
+   justify-content: space-between;
 }
 
 .sidetab-button-container {
@@ -16,17 +23,22 @@
    align-items: center;
    justify-content: center;
    height: 100%;
+   position: relative;
 
 }
 
 
 .sidebar-button { 
-    height:80px; 
+    height:30px; 
     width:80px;
     margin: 10px;
+    position: relative;
  } 
 
- .qr-button { 
-    background-image: url("QRIcon.png");
-    background-size: contain;
+ .qr-button {
+   margin-top: auto;
+   height:80px;
+   width:80px;
+   background-image: url("QRIcon.png");
+   background-size: contain;
  }
