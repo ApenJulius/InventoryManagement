@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './QRScanner.css';
-import { Html5Qrcode } from 'html5-qrcode';
+import { Html5Qrcode, Html5QrcodeResult } from 'html5-qrcode';
 
 interface IQRScanner {
     onScan: (result: string) => void;
@@ -9,7 +9,7 @@ interface IQRScanner {
 }
 const QRScanner: React.FC<IQRScanner> = ({ onScan, onOutsideClick }) => {
 
-    const [scanResult, setScanResult] = useState(null);
+    const [scanResult, setScanResult] = useState<string | null>(null);
     const [isScanning, setIsScanning] = useState(false);
     const qrScanner = useRef<Html5Qrcode | null>(null);
 
@@ -22,10 +22,10 @@ const QRScanner: React.FC<IQRScanner> = ({ onScan, onOutsideClick }) => {
         };
         const config = { fps: 10, qrbox: { width: 250, height: 250 } };
 
-        qrScanner.current.start({ facingMode: 'environment' }, config, (decodedText, result) => {
+        qrScanner.current.start({ facingMode: 'environment' }, config, (decodedText: string, result: Html5QrcodeResult) => {
             console.log('decodedText', decodedText);
             console.log('decodedResult', result);
-            setScanResult(result);
+            setScanResult('Completed');
         }, qrCodeErrorCallback);
         setIsScanning(true);   
     }, [isScanning]);
