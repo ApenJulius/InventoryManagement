@@ -48,9 +48,10 @@ const QRScanner: React.FC<IQRScanner> = ({ onScan, onOutsideClick }) => {
         <div className='QRScan-veil' onClick={handleOutsideClick}>
             <div className='QRScan-container' onClick={(e) => e.stopPropagation()}>
                 <div id='reader' />
-                <p id="test">
+                <h1 id="test">
+                    THIS HERE IS FOR TESTING : 
                     {scanResult ? scanResult : 'Scanning...'}
-                </p>
+                </h1>
             </div>
         </div>
     );
