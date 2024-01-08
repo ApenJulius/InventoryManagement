@@ -8,7 +8,51 @@ const Inventory: React.FC = () => {
         { product:'product2', borrower:'borrower2', lendingDate:'lendingDate2', status:'status2', expiration:'expiration2', action:'action2' },
         { product:'product3', borrower:'borrower3', lendingDate:'lendingDate3', status:'status3', expiration:'expiration3', action:'action3' },
         { product:'product2', borrower:'borrower2', lendingDate:'lendingDate2', status:'status2', expiration:'expiration2', action:'action2' },
-        { product:'product3', borrower:'borrower3', lendingDate:'lendingDate3', status:'status3', expiration:'expiration3', action:'action3' },];
+        { product:'product3', borrower:'borrower3', lendingDate:'lendingDate3', status:'status3', expiration:'expiration3', action:'action3' },
+        { product:'product2', borrower:'borrower2', lendingDate:'lendingDate2', status:'status2', expiration:'expiration2', action:'action2' },
+        { product:'product3', borrower:'borrower3', lendingDate:'lendingDate3', status:'status3', expiration:'expiration3', action:'action3' },
+        { product:'product2', borrower:'borrower2', lendingDate:'lendingDate2', status:'status2', expiration:'expiration2', action:'action2' },
+        { product:'product3', borrower:'borrower3', lendingDate:'lendingDate3', status:'status3', expiration:'expiration3', action:'action3' },
+        { product:'product2', borrower:'borrower2', lendingDate:'lendingDate2', status:'status2', expiration:'expiration2', action:'action2' },
+        { product:'product3', borrower:'borrower3', lendingDate:'lendingDate3', status:'status3', expiration:'expiration3', action:'action3' },
+        { product:'product2', borrower:'borrower2', lendingDate:'lendingDate2', status:'status2', expiration:'expiration2', action:'action2' },
+        { product:'product3', borrower:'borrower3', lendingDate:'lendingDate3', status:'status3', expiration:'expiration3', action:'action3' },
+        { product:'product2', borrower:'borrower2', lendingDate:'', status:'status2', expiration:'expiration2', action:'action2' },
+        { product:'product3', borrower:'borrower3', lendingDate:'lendingDate3', status:'status3', expiration:'expiration3', action:'action3' },
+        { product:'product2', borrower:'borrower2', lendingDate:'lendingDate2', status:'status2', expiration:'expiration2', action:'action2' },
+        { product:'product3', borrower:'borrower3', lendingDate:'lendingDate3', status:'status3', expiration:'expiration3', action:'action3' },
+        { product:'product2', borrower:'borrower2', lendingDate:'lendingDate2', status:'status2', expiration:'expiration2', action:'action2' },
+        { product:'product3', borrower:'borrower3', lendingDate:'lendingDate3', status:'status3', expiration:'expiration3', action:'action3' },
+        { product:'product2', borrower:'borrower2', lendingDate:'lendingDate2', status:'status2', expiration:'expiration2', action:'action2' },
+        { product:'product3', borrower:'borrower3', lendingDate:'lendingDate3', status:'status3', expiration:'expiration3', action:'action3' },
+        { product:'product2', borrower:'borrower2', lendingDate:'lendingDate2', status:'status2', expiration:'expiration2', action:'action2' },
+        { product:'product3', borrower:'borrower3', lendingDate:'lendingDate3', status:'status3', expiration:'expiration3', action:'action3' },
+        { product:'product2', borrower:'borrower2', lendingDate:'lendingDate2', status:'status2', expiration:'expiration2', action:'action2' },
+        { product:'product3', borrower:'borrower3', lendingDate:'lendingDate3', status:'status3', expiration:'expiration3', action:'action3' },
+        { product:'product2', borrower:'borrower2', lendingDate:'lendingDate2', status:'status2', expiration:'expiration2', action:'action2' },
+        { product:'product3', borrower:'borrower3', lendingDate:'lendingDate3', status:'status3', expiration:'expiration3', action:'action3' },
+        { product:'product2', borrower:'borrower2', lendingDate:'lendingDate2', status:'status2', expiration:'expiration2', action:'action2' },
+        { product:'product3', borrower:'borrower3', lendingDate:'lendingDate3', status:'status3', expiration:'expiration3', action:'action3' },
+        { product:'product2', borrower:'borrower2', lendingDate:'lendingDate2', status:'status2', expiration:'expiration2', action:'action2' },
+        { product:'product3', borrower:'borrower3', lendingDate:'lendingDate3', status:'status3', expiration:'expiration3', action:'action3' },
+        { product:'product2', borrower:'borrower2', lendingDate:'lendingDate2', status:'status2', expiration:'expiration2', action:'action2' },
+        { product:'product3', borrower:'borrower3', lendingDate:'lendingDate3', status:'status3', expiration:'expiration3', action:'action3' },
+        { product:'product2', borrower:'borrower2', lendingDate:'lendingDate2', status:'status2', expiration:'expiration2', action:'action2' },
+        { product:'product3', borrower:'borrower3', lendingDate:'lendingDate3', status:'status3', expiration:'expiration3', action:'action3' },
+        { product:'product2', borrower:'borrower2', lendingDate:'lendingDate2', status:'status2', expiration:'expiration2', action:'action2' },
+        { product:'product3', borrower:'borrower3', lendingDate:'lendingDate3', status:'status3', expiration:'expiration3', action:'action3' },
+        { product:'product2', borrower:'borrower2', lendingDate:'lendingDate2', status:'status2', expiration:'expiration2', action:'action2' },
+        { product:'product3', borrower:'borrower3', lendingDate:'lendingDate3', status:'status3', expiration:'expiration3', action:'action3' },
+        { product:'product2', borrower:'borrower2', lendingDate:'lendingDate2', status:'status2', expiration:'expiration2', action:'action2' },
+        { product:'product3', borrower:'borrower3', lendingDate:'lendingDate3', status:'status3', expiration:'expiration3', action:'action3' },
+        { product:'product2', borrower:'borrower2', lendingDate:'lendingDate2', status:'status2', expiration:'expiration2', action:'action2' },
+        { product:'product3', borrower:'borrower3', lendingDate:'lendingDate3', status:'status3', expiration:'expiration3', action:'action3' },
+        { product:'product2', borrower:'borrower2', lendingDate:'lendingDate2', status:'status2', expiration:'expiration2', action:'action2' },
+        { product:'product3', borrower:'borrower3', lendingDate:'lendingDate3', status:'status3', expiration:'expiration3', action:'action3' },
+        { product:'product2', borrower:'borrower2', lendingDate:'lendingDate2', status:'status2', expiration:'expiration2', action:'action2' },
+        { product:'product3', borrower:'borrower3', lendingDate:'lendingDate3', status:'status3', expiration:'expiration3', action:'action3' },
+        { product:'product2', borrower:'borrower2', lendingDate:'lendingDate2', status:'status2', expiration:'expiration2', action:'action2' },
+        { product:'product3', borrower:'borrower3', lendingDate:'lendingDate3', status:'status3', expiration:'expiration3', action:'action3' }];
     return ( 
         <div className='inventory-container'>
             <table style={{ width:'100%', minWidth: 'max-content' }}>
@@ -24,7 +68,7 @@ const Inventory: React.FC = () => {
                 </thead>
                 <tbody>
                     {data.map((item, index) => (
-                        <tr key={index} style={{ padding:'3px' }}>
+                        <tr key={index}>
                             <td>{item.product}</td>
                             <td>{item.borrower}</td>
                             <td>{item.lendingDate}</td>
