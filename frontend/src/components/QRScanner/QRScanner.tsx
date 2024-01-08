@@ -32,8 +32,12 @@ const QRScanner: React.FC<IQRScanner> = ({ onScan, onOutsideClick }) => {
 
     const handleOutsideClick = async () => {
         if (qrScanner.current) {
-            await qrScanner.current.stop().then(stopped => console.log('stopped', stopped)).catch((err) => console.log(err));
-            setIsScanning(true);
+            try {
+                await qrScanner.current.stop().then(stopped => console.log('stopped', stopped)).catch((err) => console.log(err));
+                setIsScanning(true);
+            } catch (err) {
+                console.log(err);
+            }
         }
         onOutsideClick();
     };
