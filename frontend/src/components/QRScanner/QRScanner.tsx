@@ -25,6 +25,14 @@ const QRScanner: React.FC<IQRScanner> = ({ onScan, onOutsideClick }) => {
         qrScanner.current.start({ facingMode: 'environment' }, config, (decodedText, result) => {
             console.log('decodedText', decodedText);
             console.log('decodedResult', result);
+            fetch('http://localhost:3000/qrScan', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ qrCode: decodedText })
+            });
+        
         }, qrCodeErrorCallback);
         setIsScanning(true);   
     }, [isScanning]);
@@ -47,6 +55,7 @@ const QRScanner: React.FC<IQRScanner> = ({ onScan, onOutsideClick }) => {
         <div className='QRScan-veil' onClick={handleOutsideClick}>
             <div className='QRScan-container' onClick={(e) => e.stopPropagation()}>
                 <div id='reader' />
+                <p id="test"></p>
             </div>
         </div>
     );

@@ -18,6 +18,13 @@ app.get('/products', async (req, res) => {
     res.send('Hello world');
 });
 
+app.post('/qrScan', async (req, res) => {
+    console.log(req.body);
+});
+
+
+
+
 app.listen(4000, () => {
     console.log('Server listening on port 3000');
 });
