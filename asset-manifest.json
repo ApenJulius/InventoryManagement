@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "'http://localhost:3000';/static/css/main.95469420.css",
-    "main.js": "'http://localhost:3000';/static/js/main.af3e658a.js",
-    "static/js/787.9e9f4ffd.chunk.js": "'http://localhost:3000';/static/js/787.9e9f4ffd.chunk.js",
-    "index.html": "'http://localhost:3000';/index.html",
-    "main.95469420.css.map": "'http://localhost:3000';/static/css/main.95469420.css.map",
-    "main.af3e658a.js.map": "'http://localhost:3000';/static/js/main.af3e658a.js.map",
-    "787.9e9f4ffd.chunk.js.map": "'http://localhost:3000';/static/js/787.9e9f4ffd.chunk.js.map"
+    "main.css": "https://apenjulius.github.io/InventoryManagement/static/css/main.95469420.css",
+    "main.js": "https://apenjulius.github.io/InventoryManagement/static/js/main.71cbcd9e.js",
+    "static/js/787.9e9f4ffd.chunk.js": "https://apenjulius.github.io/InventoryManagement/static/js/787.9e9f4ffd.chunk.js",
+    "index.html": "https://apenjulius.github.io/InventoryManagement/index.html",
+    "main.95469420.css.map": "https://apenjulius.github.io/InventoryManagement/static/css/main.95469420.css.map",
+    "main.71cbcd9e.js.map": "https://apenjulius.github.io/InventoryManagement/static/js/main.71cbcd9e.js.map",
+    "787.9e9f4ffd.chunk.js.map": "https://apenjulius.github.io/InventoryManagement/static/js/787.9e9f4ffd.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.95469420.css",
-    "static/js/main.af3e658a.js"
+    "static/js/main.71cbcd9e.js"
   ]
 }
