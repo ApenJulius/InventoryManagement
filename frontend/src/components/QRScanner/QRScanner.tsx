@@ -11,28 +11,26 @@ const QRScanner: React.FC<IQRScanner> = ({ onScan, onOutsideClick }) => {
 
     const [scanResult, setScanResult] = useState(null);
     const [isScanning, setIsScanning] = useState(false);
-    const qrScanner = useRef(null);
+    const qrScanner = useRef<Html5Qrcode | null>(null);
 
-    console.log(qrScanner, ' 1');
     useEffect(() => {
         if (isScanning) return;
         qrScanner.current = new Html5Qrcode('reader');
 
-        console.log(qrScanner.current, ' 2');
-
-        const qrCodeSuccessCallback = (decodedText, decodedResult) => {
-        };
-        const qrCodeErrorCallback = (decodedText, decodedResult) => {
+        const qrCodeErrorCallback = (error:string) => {
+            console.log('decodedText FAIL', error);
         };
         const config = { fps: 10, qrbox: { width: 250, height: 250 } };
 
-        qrScanner.current.start({ facingMode: 'user' }, config, qrCodeSuccessCallback, qrCodeErrorCallback);
+        qrScanner.current.start({ facingMode: 'environment' }, config, (decodedText, result) => {
+            console.log('decodedText', decodedText);
+            console.log('decodedResult', result);
+        }, qrCodeErrorCallback);
         setIsScanning(true);   
     }, [isScanning]);
 
 
     const handleOutsideClick = async () => {
-        console.log(qrScanner.current, ' 3');
         if (qrScanner.current) {
             await qrScanner.current.stop().then(stopped => console.log('stopped', stopped)).catch((err) => console.log(err));
             setIsScanning(true);
