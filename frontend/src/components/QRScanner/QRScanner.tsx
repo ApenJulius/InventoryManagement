@@ -1,30 +1,50 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './QRScanner.css';
 import { Html5Qrcode } from 'html5-qrcode';
 
 interface IQRScanner {
     onScan: (result: string) => void;
-    onOutideClick: () => void;
+    onOutsideClick: () => void;
+
 }
+const QRScanner: React.FC<IQRScanner> = ({ onScan, onOutsideClick }) => {
 
-const QRScanner: React.FC<IQRScanner> = ({ onScan, onOutideClick }) => {
-    /*     const [scanResult, setScanResult] = useState(null);
-    const qrScanner = new Html5Qrcode('reader');
+    const [scanResult, setScanResult] = useState(null);
+    const [isScanning, setIsScanning] = useState(false);
+    const qrScanner = useRef(null);
+
+    console.log(qrScanner, ' 1');
+    useEffect(() => {
+        if (isScanning) return;
+        qrScanner.current = new Html5Qrcode('reader');
+
+        console.log(qrScanner.current, ' 2');
+
+        const qrCodeSuccessCallback = (decodedText, decodedResult) => {
+        };
+        const qrCodeErrorCallback = (decodedText, decodedResult) => {
+        };
+        const config = { fps: 10, qrbox: { width: 250, height: 250 } };
+
+        qrScanner.current.start({ facingMode: 'user' }, config, qrCodeSuccessCallback, qrCodeErrorCallback);
+        setIsScanning(true);   
+    }, [isScanning]);
 
 
-    const qrCodeSuccessCallback = (decodedText, decodedResult) => {
+    const handleOutsideClick = async () => {
+        console.log(qrScanner.current, ' 3');
+        if (qrScanner.current) {
+            await qrScanner.current.stop().then(stopped => console.log('stopped', stopped)).catch((err) => console.log(err));
+            setIsScanning(true);
+        }
+        onOutsideClick();
     };
-    const qrCodeErrorCallback = (decodedText, decodedResult) => {
-    };
-    const config = { fps: 10, qrbox: { width: 250, height: 250 } };
-     */
-    // If you want to prefer front camera
-    //qrScanner.start({ facingMode: 'user' }, config, qrCodeSuccessCallback, qrCodeErrorCallback);
     
-
+    
     return ( 
-        <div className='QRScan-veil' onClick={onOutideClick}>
+        <div className='QRScan-veil' onClick={handleOutsideClick}>
             <div className='QRScan-container' onClick={(e) => e.stopPropagation()}>
+                <div id='reader' />
             </div>
         </div>
     );
