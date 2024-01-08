@@ -35,7 +35,7 @@ const SideTab: React.FC<IUser> = ({ name, role }) => {
                     </button>
                     {
                         showQR ?
-                            <QRScanner onOutideClick={toggleQR} onScan={toggleQR}/>
+                            <QRScanner onOutsideClick={toggleQR} onScan={toggleQR}/>
                             : null
                     }
                 </div>
