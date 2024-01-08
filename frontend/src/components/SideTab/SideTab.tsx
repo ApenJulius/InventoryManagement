@@ -25,12 +25,14 @@ const SideTab: React.FC<IUser> = ({ name, role }) => {
                 </div>
                 <div className='sidetab-button-container'>
                     <button className='sidebar-button'>
-                        overview
+                        Overview
                     </button>
                     <button className='sidebar-button'>
                         History
                     </button>
-                    
+                    <button className='sidebar-button'>
+                        Inventory
+                    </button>
                     {
                         showQR ?
                             <QRScanner onOutsideClick={toggleQR} onScan={toggleQR}/>
