@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "https://apenjulius.github.io/InventoryManagement/static/css/main.95469420.css",
-    "main.js": "https://apenjulius.github.io/InventoryManagement/static/js/main.71cbcd9e.js",
+    "main.js": "https://apenjulius.github.io/InventoryManagement/static/js/main.d771f23f.js",
     "static/js/787.9e9f4ffd.chunk.js": "https://apenjulius.github.io/InventoryManagement/static/js/787.9e9f4ffd.chunk.js",
     "index.html": "https://apenjulius.github.io/InventoryManagement/index.html",
     "main.95469420.css.map": "https://apenjulius.github.io/InventoryManagement/static/css/main.95469420.css.map",
-    "main.71cbcd9e.js.map": "https://apenjulius.github.io/InventoryManagement/static/js/main.71cbcd9e.js.map",
+    "main.d771f23f.js.map": "https://apenjulius.github.io/InventoryManagement/static/js/main.d771f23f.js.map",
     "787.9e9f4ffd.chunk.js.map": "https://apenjulius.github.io/InventoryManagement/static/js/787.9e9f4ffd.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.95469420.css",
-    "static/js/main.71cbcd9e.js"
+    "static/js/main.d771f23f.js"
   ]
 }
