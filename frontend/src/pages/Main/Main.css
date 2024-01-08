@@ -1,12 +1,8 @@
-.App {
-  text-align: center;
-  background-color: white;
-  margin:auto;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.Main {
+  min-height: 100%;
+  width: 100%;
+  display: flex;
+  margin-top: 2em;
 }
 
 @media (prefers-reduced-motion: no-preference) {

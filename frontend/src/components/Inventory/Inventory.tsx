@@ -10,8 +10,8 @@ const Inventory: React.FC = () => {
         { product:'product2', borrower:'borrower2', lendingDate:'lendingDate2', status:'status2', expiration:'expiration2', action:'action2' },
         { product:'product3', borrower:'borrower3', lendingDate:'lendingDate3', status:'status3', expiration:'expiration3', action:'action3' },];
     return ( 
-        <div style={{ backgroundColor:'grey', width:'80%', height:'40%', marginLeft:'auto', marginRight:'1%' }}>
-            <table style={{ width:'100%' }}>
+        <div className='inventory-container'>
+            <table style={{ width:'100%', minWidth: 'max-content' }}>
                 <thead style={{ textAlign:'left' }}>
                     <tr>
                         <th>Product</th>

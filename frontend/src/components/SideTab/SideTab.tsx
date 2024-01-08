@@ -17,13 +17,13 @@ const SideTab: React.FC<IUser> = ({ name, role }) => {
     // Add your component logic here
     return ( 
         <>
-            <div style={{ display:'flex', width:'180px', position:'absolute', backgroundColor:'grey', flexDirection:'column' }}>
+            <div  className='sidetab-container'>
                 <div style={{ height:'60px', backgroundColor:'lightblue' }}>
                     {name}
                     <br />
                     {role}
                 </div>
-                <div style={{ display:'flex', flexDirection:'column', position:'relative' }}>
+                <div className='sidetab-button-container'>
                     <button className='sidebar-button'>
                         overview
                     </button>
