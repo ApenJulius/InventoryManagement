@@ -10,3 +10,19 @@ export enum ProductStatus{
     BROKEN = 'BROKEN',
     LOST = 'LOST'
 }
+
+export interface IProduct {
+    id?: number;
+    name?: string;
+    borrower?: string;
+    lendingDate?: string;
+    status?: string;
+    expiration?: string;
+    onOutsideClick?: () => void;
+    // Add any other properties here
+}
+
+export interface IVeil {
+    onOutsideClick?: () => void;
+    children: React.ReactNode;
+}
