@@ -1,5 +1,5 @@
 import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, ManyToOne } from 'typeorm';
-import { Customers } from './Users';
+import { Customers } from './Customers';
 
 @Entity()
 export class Products extends BaseEntity {
@@ -9,25 +9,25 @@ export class Products extends BaseEntity {
     @PrimaryGeneratedColumn()
         id: number;
 
-    @Column()
+    @Column({ nullable: true })
         name: string;
 
-    @Column()
+    @Column({ unique: true })
         identifier: string;
 
     @Column()
         status: string;
 
-    @ManyToOne(() => Customers, customer => customer.borrowing)
-        borrower: string;
+    @ManyToOne(() => Customers, customer => customer.borrowing, { nullable: true })
+        borrower: Customers;
 
-    @Column({ type: 'datetime' })
+    @Column({ type: 'datetime', nullable: true })
         lendingDate: string;
 
-    @Column({ type: 'datetime' })
+    @Column({ type: 'datetime', nullable: true  })
         lendingExpiration: string;
 
-    @Column({ type: 'datetime' })
+    @Column({ type: 'datetime', nullable: true  })
         returnDate: string;
 
 }
