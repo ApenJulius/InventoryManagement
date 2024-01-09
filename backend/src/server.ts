@@ -2,7 +2,7 @@ import 'reflect-metadata';
 import { Database } from './database/app-data-source';
 import express, { Application } from 'express';
 import { Products } from './database/models/Products';
-import { validateQRCode } from './middleware';
+import { validateQRCode } from './utils/middleware';
 
 
 
@@ -14,7 +14,7 @@ Database.initialize().then(() => {
 
 const app: Application = express();
 app.use(express.json());
-
+// app.use(validateUser) TODO: Implement this middleware
 app.get('/products', async (req, res) => {
     const products = await Database.getRepository(Products);
     console.log(await products.find());
@@ -26,15 +26,13 @@ app.post('/qrScan', async (req, res) => {
         res.status(400).send('Could not validate QR code');
         return;
     }
-    const products = await Database.getRepository(Products);
+    // TODO: Implement this endpoint with returning he product in pop up, or question of creating
 
 });
 
 app.post('/updateProduct', async (req, res) => {
-
+    // TODO: Implement this endpoint with updating the product
 });
-
-
 
 
 app.listen(4000, () => {
