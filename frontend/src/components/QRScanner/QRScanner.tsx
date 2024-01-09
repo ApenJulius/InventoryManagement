@@ -1,13 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './QRScanner.css';
 import { Html5Qrcode, Html5QrcodeResult } from 'html5-qrcode';
+import Veil from '../Veil/Veil';
 
 interface IQRScanner {
-    onScan: (result: string) => void;
     onOutsideClick: () => void;
-
 }
-const QRScanner: React.FC<IQRScanner> = ({ onScan, onOutsideClick }) => {
+
+const QRScanner: React.FC<IQRScanner> = ({ onOutsideClick }) => {
 
     const [scanResult, setScanResult] = useState<string | null>(null);
     const [isScanning, setIsScanning] = useState(false);
@@ -45,15 +45,13 @@ const QRScanner: React.FC<IQRScanner> = ({ onScan, onOutsideClick }) => {
     
     
     return ( 
-        <div className='QRScan-veil' onClick={handleOutsideClick}>
-            <div className='QRScan-container' onClick={(e) => e.stopPropagation()}>
-                <div id='reader' />
-                <h1 id="test">
-                    THIS HERE IS FOR TESTING : 
-                    {scanResult ? scanResult : 'Scanning...'}
-                </h1>
-            </div>
-        </div>
+        <Veil onOutsideClick={handleOutsideClick}>
+            <div id='reader' />
+            <h1 id="test">
+                THIS IS FOR TESTING : 
+                {scanResult ? scanResult : 'Scanning...'}
+            </h1>
+        </Veil>
     );
 };
 
