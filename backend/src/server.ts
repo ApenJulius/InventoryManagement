@@ -15,6 +15,14 @@ Database.initialize().then(() => {
 const app: Application = express();
 app.use(express.json());
 // app.use(validateUser) TODO: Implement this middleware
+
+
+app.get('/', (req, res) => {
+    res.send('Hello world');
+});
+
+
+
 app.get('/products', async (req, res) => {
     const products = await Database.getRepository(Products);
     console.log(await products.find());
