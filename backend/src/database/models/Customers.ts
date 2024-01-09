@@ -12,6 +12,6 @@ export class Customers {
     @Column({ unique: true })
         identifier: string;
 
-    @OneToMany(() => Products, product => product.borrower)
+    @OneToMany(() => Products, product => product.borrower, { nullable: true })
         borrowing: Products[];
 }
