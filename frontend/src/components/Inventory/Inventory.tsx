@@ -1,84 +1,66 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Inventory.css';
-
+import ProductModule from '../ProductModule/ProductModule';
+import { IProduct } from '../../types';
 
 const Inventory: React.FC = () => {
     // Add your component logic here
-    const data = [ { product:'product1', borrower:'borrower1', lendingDate:'lendingDate1', status:'status1', expiration:'expiration1', action:'action1' },
-        { product:'product2', borrower:'borrower2', lendingDate:'lendingDate2', status:'status2', expiration:'expiration2', action:'action2' },
-        { product:'product3', borrower:'borrower3', lendingDate:'lendingDate3', status:'status3', expiration:'expiration3', action:'action3' },
-        { product:'product2', borrower:'borrower2', lendingDate:'lendingDate2', status:'status2', expiration:'expiration2', action:'action2' },
-        { product:'product3', borrower:'borrower3', lendingDate:'lendingDate3', status:'status3', expiration:'expiration3', action:'action3' },
-        { product:'product2', borrower:'borrower2', lendingDate:'lendingDate2', status:'status2', expiration:'expiration2', action:'action2' },
-        { product:'product3', borrower:'borrower3', lendingDate:'lendingDate3', status:'status3', expiration:'expiration3', action:'action3' },
-        { product:'product2', borrower:'borrower2', lendingDate:'lendingDate2', status:'status2', expiration:'expiration2', action:'action2' },
-        { product:'product3', borrower:'borrower3', lendingDate:'lendingDate3', status:'status3', expiration:'expiration3', action:'action3' },
-        { product:'product2', borrower:'borrower2', lendingDate:'lendingDate2', status:'status2', expiration:'expiration2', action:'action2' },
-        { product:'product3', borrower:'borrower3', lendingDate:'lendingDate3', status:'status3', expiration:'expiration3', action:'action3' },
-        { product:'product2', borrower:'borrower2', lendingDate:'lendingDate2', status:'status2', expiration:'expiration2', action:'action2' },
-        { product:'product3', borrower:'borrower3', lendingDate:'lendingDate3', status:'status3', expiration:'expiration3', action:'action3' },
-        { product:'product2', borrower:'borrower2', lendingDate:'', status:'status2', expiration:'expiration2', action:'action2' },
-        { product:'product3', borrower:'borrower3', lendingDate:'lendingDate3', status:'status3', expiration:'expiration3', action:'action3' },
-        { product:'product2', borrower:'borrower2', lendingDate:'lendingDate2', status:'status2', expiration:'expiration2', action:'action2' },
-        { product:'product3', borrower:'borrower3', lendingDate:'lendingDate3', status:'status3', expiration:'expiration3', action:'action3' },
-        { product:'product2', borrower:'borrower2', lendingDate:'lendingDate2', status:'status2', expiration:'expiration2', action:'action2' },
-        { product:'product3', borrower:'borrower3', lendingDate:'lendingDate3', status:'status3', expiration:'expiration3', action:'action3' },
-        { product:'product2', borrower:'borrower2', lendingDate:'lendingDate2', status:'status2', expiration:'expiration2', action:'action2' },
-        { product:'product3', borrower:'borrower3', lendingDate:'lendingDate3', status:'status3', expiration:'expiration3', action:'action3' },
-        { product:'product2', borrower:'borrower2', lendingDate:'lendingDate2', status:'status2', expiration:'expiration2', action:'action2' },
-        { product:'product3', borrower:'borrower3', lendingDate:'lendingDate3', status:'status3', expiration:'expiration3', action:'action3' },
-        { product:'product2', borrower:'borrower2', lendingDate:'lendingDate2', status:'status2', expiration:'expiration2', action:'action2' },
-        { product:'product3', borrower:'borrower3', lendingDate:'lendingDate3', status:'status3', expiration:'expiration3', action:'action3' },
-        { product:'product2', borrower:'borrower2', lendingDate:'lendingDate2', status:'status2', expiration:'expiration2', action:'action2' },
-        { product:'product3', borrower:'borrower3', lendingDate:'lendingDate3', status:'status3', expiration:'expiration3', action:'action3' },
-        { product:'product2', borrower:'borrower2', lendingDate:'lendingDate2', status:'status2', expiration:'expiration2', action:'action2' },
-        { product:'product3', borrower:'borrower3', lendingDate:'lendingDate3', status:'status3', expiration:'expiration3', action:'action3' },
-        { product:'product2', borrower:'borrower2', lendingDate:'lendingDate2', status:'status2', expiration:'expiration2', action:'action2' },
-        { product:'product3', borrower:'borrower3', lendingDate:'lendingDate3', status:'status3', expiration:'expiration3', action:'action3' },
-        { product:'product2', borrower:'borrower2', lendingDate:'lendingDate2', status:'status2', expiration:'expiration2', action:'action2' },
-        { product:'product3', borrower:'borrower3', lendingDate:'lendingDate3', status:'status3', expiration:'expiration3', action:'action3' },
-        { product:'product2', borrower:'borrower2', lendingDate:'lendingDate2', status:'status2', expiration:'expiration2', action:'action2' },
-        { product:'product3', borrower:'borrower3', lendingDate:'lendingDate3', status:'status3', expiration:'expiration3', action:'action3' },
-        { product:'product2', borrower:'borrower2', lendingDate:'lendingDate2', status:'status2', expiration:'expiration2', action:'action2' },
-        { product:'product3', borrower:'borrower3', lendingDate:'lendingDate3', status:'status3', expiration:'expiration3', action:'action3' },
-        { product:'product2', borrower:'borrower2', lendingDate:'lendingDate2', status:'status2', expiration:'expiration2', action:'action2' },
-        { product:'product3', borrower:'borrower3', lendingDate:'lendingDate3', status:'status3', expiration:'expiration3', action:'action3' },
-        { product:'product2', borrower:'borrower2', lendingDate:'lendingDate2', status:'status2', expiration:'expiration2', action:'action2' },
-        { product:'product3', borrower:'borrower3', lendingDate:'lendingDate3', status:'status3', expiration:'expiration3', action:'action3' },
-        { product:'product2', borrower:'borrower2', lendingDate:'lendingDate2', status:'status2', expiration:'expiration2', action:'action2' },
-        { product:'product3', borrower:'borrower3', lendingDate:'lendingDate3', status:'status3', expiration:'expiration3', action:'action3' },
-        { product:'product2', borrower:'borrower2', lendingDate:'lendingDate2', status:'status2', expiration:'expiration2', action:'action2' },
-        { product:'product3', borrower:'borrower3', lendingDate:'lendingDate3', status:'status3', expiration:'expiration3', action:'action3' },
-        { product:'product2', borrower:'borrower2', lendingDate:'lendingDate2', status:'status2', expiration:'expiration2', action:'action2' },
-        { product:'product3', borrower:'borrower3', lendingDate:'lendingDate3', status:'status3', expiration:'expiration3', action:'action3' },
-        { product:'product2', borrower:'borrower2', lendingDate:'lendingDate2', status:'status2', expiration:'expiration2', action:'action2' },
-        { product:'product3', borrower:'borrower3', lendingDate:'lendingDate3', status:'status3', expiration:'expiration3', action:'action3' }];
+    const [products, setProducts] = React.useState<IProduct[]>([]);
+    const [productModule, setProductModule] = React.useState<IProduct | null>(null);
+    const [isModalOpen, setIsModalOpen] = React.useState<boolean>(false);
+    
+    
+    
+    useEffect(() =>{
+        fetch(`${process.env.REACT_APP_BACKEND}/products`).then((res) => res.json())
+            .then((data) => {
+                setProducts(data);
+            })
+            .catch((error) => console.error('Error:', error));
+    }, []);
+
+
+
+
+    const handleRowClick = (product: IProduct) => {
+        fetch(`${process.env.REACT_APP_BACKEND}/products/${product.id}`).then((res) => res.json()).then((data) => {
+            console.log(data);
+        });
+        setProductModule(product);
+        setIsModalOpen(true);
+    };
+
     return ( 
         <div className='inventory-container'>
             <table style={{ width:'100%', minWidth: 'max-content' }}>
                 <thead style={{ textAlign:'left' }}>
                     <tr>
                         <th>Product</th>
+                        <th>Status</th>
                         <th>Borrower</th>
                         <th>Lending Date</th>
-                        <th>Status</th>
                         <th>Expiration</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {data.map((item, index) => (
-                        <tr key={index}>
-                            <td>{item.product}</td>
-                            <td>{item.borrower}</td>
-                            <td>{item.lendingDate}</td>
-                            <td>{item.status}</td>
-                            <td>{item.expiration}</td>
+                    {products.map((product, index) => (
+                        <tr key={index} onClick={() => handleRowClick(product)}>
+                            <td>{product.name}</td>
+                            <td>{product.status}</td>
+                            <td>{product.borrower}</td>
+                            <td>{product.lendingDate ? new Date(product.lendingDate).toLocaleString() : ''}</td>
+                            <td>{product.expiration}</td>
                             <td><button>Delete</button></td>
                         </tr>
                     ))}
                 </tbody>
             </table>
+            {
+                isModalOpen ?
+                    <ProductModule initialProduct={productModule} onOutsideClick={() => setIsModalOpen(false)}/>
+                    : null
+            }
         </div>
     );
 };
