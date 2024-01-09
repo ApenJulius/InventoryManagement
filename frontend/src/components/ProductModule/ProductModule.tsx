@@ -1,22 +1,26 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { ProductStatus } from '../../types';
+import React, { useEffect } from 'react';
+import { IProduct } from '../../types';
 import './ProductModule.css';
+import Veil from '../Veil/Veil';
 
-interface IProduct {
-    id: number;
-    name: string;
-    status: ProductStatus;
-    borrower: string;
-    lendingDate: string;
-    lendingExpiration: string;
+interface IProductModule {
+    initialProduct: IProduct | null;
+    onOutsideClick?: () => void;
 }
-const ProductModule: React.FC<IProduct> = ({ id, name, status, borrower, lendingDate, lendingExpiration }) => {
-    
+
+
+const ProductModule: React.FC<IProductModule> = ({ initialProduct, onOutsideClick }) => {
+    const [product, setProduct] = React.useState<IProduct | null>(initialProduct);
+
+    const handleOutsideClick = async () => {
+        if (onOutsideClick)
+            onOutsideClick();
+    };
     
     return ( 
-        <div className='product-module-container'>
-
-        </div>
+        <Veil onOutsideClick={handleOutsideClick}>
+            {product ? product.name + ' ' + product.status : 'Loading...'}
+        </Veil>
     );
 };
 
