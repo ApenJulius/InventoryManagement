@@ -19,7 +19,21 @@ const ProductModule: React.FC<IProductModule> = ({ initialProduct, onOutsideClic
     
     return ( 
         <Veil onOutsideClick={handleOutsideClick}>
-            {product ? product.name + ' ' + product.status : 'Loading...'}
+            <div className="product-module-container">
+                {
+                    product ? (
+                        <>
+                            <div><span>{product.id}</span></div>
+                            <div><span>{product.name}</span></div>
+                            <div><span>{product.borrower}</span></div>
+                            <div><span>{product.lendingDate ? new Date(product.lendingDate).toLocaleString() : ''}</span></div>
+                            <div><span>{product.expiration}</span></div>
+                        </>
+                    ) : (
+                        <div><span>Could not find product</span></div>
+                    )
+                }
+            </div>
         </Veil>
     );
 };

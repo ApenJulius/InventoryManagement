@@ -40,7 +40,6 @@ const Inventory: React.FC = () => {
                         <th>Borrower</th>
                         <th>Lending Date</th>
                         <th>Expiration</th>
-                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -51,7 +50,6 @@ const Inventory: React.FC = () => {
                             <td>{product.borrower}</td>
                             <td>{product.lendingDate ? new Date(product.lendingDate).toLocaleString() : ''}</td>
                             <td>{product.expiration}</td>
-                            <td><button>Delete</button></td>
                         </tr>
                     ))}
                 </tbody>
