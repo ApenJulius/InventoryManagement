@@ -1,13 +1,20 @@
+import { ProductStatus } from '../types';
 
+function validateUpdateProduct(id: number, action: ProductStatus): boolean {
+    if (!id || !action)
+        return true;
+    if (!Object.values(ProductStatus).includes(action))
+        return true;
+    return false;
 
-
+}
 
 
 function validateQRCode(qrCode: string): boolean {
     const qrCodeRegex = new RegExp('^[0-9a-z]+$');
     if (!(qrCodeRegex.test(qrCode) && qrCode.length === 25)) 
-        return false;
-    return true;
+        return true;
+    return false;
 }
 
 function validateAddProduct(name:string, amount:number): boolean {
@@ -17,4 +24,4 @@ function validateAddProduct(name:string, amount:number): boolean {
 }
 
 
-export { validateQRCode, validateAddProduct };
+export { validateQRCode, validateAddProduct, validateUpdateProduct };
