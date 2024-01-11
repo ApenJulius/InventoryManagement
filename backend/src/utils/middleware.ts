@@ -10,5 +10,11 @@ function validateQRCode(qrCode: string): boolean {
     return true;
 }
 
+function validateAddProduct(name:string, amount:number): boolean {
+    if (name.length > 0 && (amount > 0 && amount < 100))
+        return true;
+    return false;
+}
 
-export { validateQRCode };
+
+export { validateQRCode, validateAddProduct };
