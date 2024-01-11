@@ -35,6 +35,7 @@ const Inventory: React.FC = () => {
             <table style={{ width:'100%', minWidth: 'max-content' }}>
                 <thead style={{ textAlign:'left' }}>
                     <tr>
+                        <th>ID</th>
                         <th>Product</th>
                         <th>Status</th>
                         <th>Borrower</th>
@@ -45,6 +46,7 @@ const Inventory: React.FC = () => {
                 <tbody>
                     {products.map((product, index) => (
                         <tr key={index} onClick={() => handleRowClick(product)}>
+                            <td>{product.id}</td>
                             <td>{product.name}</td>
                             <td>{product.status}</td>
                             <td>{product.borrower}</td>
