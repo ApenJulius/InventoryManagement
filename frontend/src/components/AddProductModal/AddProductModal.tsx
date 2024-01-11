@@ -15,7 +15,7 @@ const AddProductModal: React.FC<IProductModule> = ({ onOutsideClick }) => {
     
     const addProducts = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        fetch(`${process.env.REACT_APP_BACKEND_URL}/products/add`, {
+        fetch(`${process.env.REACT_APP_BACKEND}/products/add`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
