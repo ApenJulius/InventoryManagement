@@ -17,7 +17,7 @@ export interface IProduct {
     borrower?: string;
     lendingDate?: string;
     status?: string;
-    expiration?: string;
+    lendingExpiration?: string;
     onOutsideClick?: () => void;
     // Add any other properties here
 }
