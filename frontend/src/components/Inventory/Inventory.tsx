@@ -49,7 +49,7 @@ const Inventory: React.FC = () => {
                             <td>{product.status}</td>
                             <td>{product.borrower}</td>
                             <td>{product.lendingDate ? new Date(product.lendingDate).toLocaleString() : ''}</td>
-                            <td>{product.expiration}</td>
+                            <td>{product.expiration ? new Date(product.expiration).toLocaleString() : ''}</td>
                         </tr>
                     ))}
                 </tbody>
