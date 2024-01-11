@@ -41,7 +41,6 @@ function generateRandomString(length: number) {
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     for (let i = 0; i < length; i++) 
         result += characters.charAt(Math.floor(Math.random() * characters.length));
-    
     return result;
 }
 function generateBulkProducts(productName: string, productAmount: number) {
@@ -56,16 +55,18 @@ function generateBulkProducts(productName: string, productAmount: number) {
     return products;
 }
 app.post('/products/add', async (req, res) => {
+    console.log('Received request to add products');
+
     const productName: string = req.body.name;
     const productAmount: number = req.body.amount;
+    
     if (!validateAddProduct(productName, productAmount)) {
         res.status(400).send('Could not validate product');
         return;
     }
     const products = generateBulkProducts(productName, productAmount);
-    console.log(products);
     await Database.createQueryBuilder().insert().into(Products).values(products).execute();
-    return res.status(200).send('Products added');
+    return res.status(200).send({ message: 'Products added' });
 });
 
 app.listen(process.env.PORT || 3000, () => {
