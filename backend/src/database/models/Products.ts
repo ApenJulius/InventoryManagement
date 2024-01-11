@@ -27,7 +27,5 @@ export class Products extends BaseEntity {
     @Column({ type: 'datetime', nullable: true  })
         lendingExpiration: string;
 
-    @Column({ type: 'datetime', nullable: true  })
-        returnDate: string;
 
 }
