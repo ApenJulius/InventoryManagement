@@ -1,24 +1,21 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { IProduct } from '../../types';
 import './ProductModule.css';
 import Veil from '../Veil/Veil';
 
 interface IProductModule {
-    initialProduct: IProduct | null;
+    product: IProduct | null;
     onOutsideClick?: () => void;
 }
 
 
-const ProductModule: React.FC<IProductModule> = ({ initialProduct, onOutsideClick }) => {
-    const [product, setProduct] = React.useState<IProduct | null>(initialProduct);
-    const [showBorrow, setShowBorrow] = React.useState<boolean>(false);
+const ProductModule: React.FC<IProductModule> = ({ product, onOutsideClick }) => {
     const handleOutsideClick = async () => {
         if (onOutsideClick)
             onOutsideClick();
     };
-    const borrowClick = () => {
-        setShowBorrow(true);
-    };
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const updateProduct = async (e: any) => { 
         const action = e.target.name;
         const body: { id: number | undefined; action: string; borrower?: string } = { id: product?.id, action };        if (action === 'BORROW') {
