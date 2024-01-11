@@ -30,11 +30,14 @@ const AddProductModal: React.FC<IProductModule> = ({ onOutsideClick }) => {
             })
         }).then(res => res.json()).then(data => {
             console.log(data);
+            if (data.message === 'Products added') 
+                window.location.reload();
+            
+            console.log(data);
         }).catch(err => {
             console.log(err);
         });
     };
-
 
     return ( 
         <Veil onOutsideClick={handleOutsideClick}>
@@ -43,7 +46,6 @@ const AddProductModal: React.FC<IProductModule> = ({ onOutsideClick }) => {
                     <div className='label-input-div'>
                         <label>Name </label>
                         <input type="text" placeholder="Product Name" name="name"/>
-                       
                     </div>
                     <div className="label-input-div">
                         <label>Amount </label>
