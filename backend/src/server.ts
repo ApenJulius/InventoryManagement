@@ -55,8 +55,10 @@ app.post('/products/add', async (req, res) => {
         return;
     }
     try {
-        const products = generateBulkProducts(productName, productAmount);
-        await Database.createQueryBuilder().insert().into(Products).values(products).execute();   
+        await Database.createQueryBuilder()
+            .insert().into(Products)
+            .values(generateBulkProducts(productName, productAmount))
+            .execute();   
     } catch (err) {
         return res.status(500).send({ message: 'Error adding products' });
     }
@@ -79,7 +81,6 @@ app.post('/products/update', async (req, res) => {
         return res.status(200).send({ code: 200, message: 'Product returned' });
     }
     if (req.body.action === 'BORROW') {
-        console.log(req.body);
         const borrower = await Database.getRepository(Customers).find({ where: { identifier: (req.body.borrower) } });
         if (borrower.length === 0) 
             return res.status(400).send({ message: 'Customer not found' });
