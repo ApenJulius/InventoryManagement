@@ -2,9 +2,11 @@ import 'reflect-metadata';
 import { Database } from './database/app-data-source';
 import express, { Application } from 'express';
 import { Products } from './database/models/Products';
-import { validateAddProduct, validateQRCode } from './utils/middleware';
+import { validateAddProduct, validateQRCode, validateUpdateProduct } from './utils/middleware';
 import cors from 'cors';
+import { generateBulkProducts } from './utils/helperFunctions';
 import { ProductStatus } from './types';
+import { Customers } from './database/models/Customers';
 
 Database.initialize().then(() => {
     console.log('Database initialized');
@@ -36,38 +38,60 @@ app.post('/qrScan', async (req, res) => {
     // TODO: Implement this endpoint with returning he product in pop up, or question of creating
 
 });
-function generateRandomString(length: number) {
-    let result = '';
-    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    for (let i = 0; i < length; i++) 
-        result += characters.charAt(Math.floor(Math.random() * characters.length));
-    return result;
-}
-function generateBulkProducts(productName: string, productAmount: number) {
-    const products = [];
-    
-    for (let i = 0; i < productAmount; i++) {
-        products.push({ 
-            name: productName, 
-            identifier: generateRandomString(25), 
-            status: ProductStatus.AVAILABLE  }); 
-    }
-    return products;
-}
+
 app.post('/products/add', async (req, res) => {
     console.log('Received request to add products');
 
     const productName: string = req.body.name;
     const productAmount: number = req.body.amount;
-    
+
     if (!validateAddProduct(productName, productAmount)) {
         res.status(400).send('Could not validate product');
         return;
     }
-    const products = generateBulkProducts(productName, productAmount);
-    await Database.createQueryBuilder().insert().into(Products).values(products).execute();
+    try {
+        const products = generateBulkProducts(productName, productAmount);
+        await Database.createQueryBuilder().insert().into(Products).values(products).execute();   
+    } catch (err) {
+        return res.status(500).send({ message: 'Error adding products' });
+    }
     return res.status(200).send({ message: 'Products added' });
 });
+
+app.post('/products/update', async (req, res) => {
+    console.log(req.body.id, req.body.action);
+    if (!validateUpdateProduct(req.body.id, req.body.action)) {
+        res.status(400).send({ message: 'Could not validate product' });
+        return;
+    }
+    if (req.body.action === 'RETURN') {
+        await Database.getRepository(Products).update(req.body.id, {
+            status: ProductStatus.AVAILABLE,
+            borrower: null,
+            lendingDate: null,
+            lendingExpiration: null,             
+        });
+        return res.status(200).send({ message: 'Product returned' });
+    }
+    if (req.body.action === 'BORROW') {
+        console.log(req.body);
+        const borrower = await Database.getRepository(Customers).find({ where: { identifier: (req.body.borrower) } });
+        if (borrower.length === 0) 
+            return res.status(400).send({ message: 'Customer not found' });
+        
+
+        await Database.getRepository(Products).update(req.body.id, {
+            status: ProductStatus.BORROWED,
+            borrower: req.body.borrower,
+            lendingDate: req.body.lendingDate,
+            lendingExpiration: req.body.lendingExpiration,             
+        });
+        return res.status(200).send({ message: 'Product borrowed' });
+    }
+
+});
+
+
 
 app.listen(process.env.PORT || 3000, () => {
     console.log(`Server listening on port ${process.env.PORT || 3000}`);
