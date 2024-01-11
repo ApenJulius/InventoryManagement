@@ -21,8 +21,13 @@ app.use(cors({ origin: ['http://localhost:3001', 'http://127.0.0.1:3001'] }));
 
 
 app.get('/products', async (req, res) => {
-    const products = await Database.getRepository(Products).find();
-    res.send(products);
+    const productsWithBorrowerName = await Database.getRepository(Products)
+        .find({ relations: ['borrower'] })
+        .then(products => products.map(product => ({
+            ...product,
+            borrower: product.borrower ? product.borrower.name : null
+        })));
+    res.send(productsWithBorrowerName);
 });
 
 app.get('/products/:id', async (req, res) => {
@@ -71,7 +76,7 @@ app.post('/products/update', async (req, res) => {
             lendingDate: null,
             lendingExpiration: null,             
         });
-        return res.status(200).send({ message: 'Product returned' });
+        return res.status(200).send({ code: 200, message: 'Product returned' });
     }
     if (req.body.action === 'BORROW') {
         console.log(req.body);
@@ -82,11 +87,11 @@ app.post('/products/update', async (req, res) => {
 
         await Database.getRepository(Products).update(req.body.id, {
             status: ProductStatus.BORROWED,
-            borrower: req.body.borrower,
-            lendingDate: req.body.lendingDate,
-            lendingExpiration: req.body.lendingExpiration,             
+            borrower: borrower[0],
+            lendingDate: new Date().toISOString(),
+            lendingExpiration: new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString(),             
         });
-        return res.status(200).send({ message: 'Product borrowed' });
+        return res.status(200).send({ code: 200, message: 'Product borrowed' });
     }
 
 });
