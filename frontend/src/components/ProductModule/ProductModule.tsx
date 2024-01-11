@@ -37,8 +37,9 @@ const ProductModule: React.FC<IProductModule> = ({ initialProduct, onOutsideClic
             },
             body: JSON.stringify(body) })
             .then((res) => res.json()).then((data) => {
-                if (data.statusCode === 500) {
-                    alert('Could not update product');
+                console.log(data);
+                if (data.code !== 200) {
+                    alert(data.message);
                     return;
                 }
                 window.location.reload();
@@ -58,7 +59,7 @@ const ProductModule: React.FC<IProductModule> = ({ initialProduct, onOutsideClic
                             <div><span>Status : {product.status}</span></div>
                             <div><span>{product.borrower ? 'Lent to :' + product.borrower : ''}</span></div>
                             <div><span>{product.lendingDate ?  ('Lent at : ' + new Date(product.lendingDate).toLocaleString()) : ''}</span></div>
-                            <div><span>{product.expiration ? ('Expiration : ' + new Date(product.expiration).toLocaleString()) : ''}</span></div>
+                            <div><span>{product.lendingExpiration ? ('Expiration : ' + new Date(product.lendingExpiration).toLocaleString()) : ''}</span></div>
                             <div>
                                 <button onClick={updateProduct} name="RETURN">Return</button>
                                 <button onClick={updateProduct} name="BORROW">Borrow</button>
