@@ -21,12 +21,14 @@ app.use(cors({ origin: ['http://localhost:3001', 'http://127.0.0.1:3001'] }));
 
 
 app.get('/products', async (req, res) => {
+    console.log('Received request to get products');
     const productsWithBorrowerName = await Database.getRepository(Products)
         .find({ relations: ['borrower'] })
         .then(products => products.map(product => ({
             ...product,
             borrower: product.borrower ? product.borrower.name : null
         })));
+        
     res.send(productsWithBorrowerName);
 });
 
@@ -40,6 +42,9 @@ app.post('/qrScan', async (req, res) => {
         res.status(400).send('Could not validate QR code');
         return;
     }
+    const product = await Database.getRepository(Products).find({ where: { identifier: req.body.qrCode } });
+    console.log(product);
+    res.send(product);
     // TODO: Implement this endpoint with returning he product in pop up, or question of creating
 
 });

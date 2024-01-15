@@ -6,44 +6,6 @@ import { Products } from './database/models/Products';
 
 Database.initialize().then(() => {
     massAddUser();
-    console.log('Database initialized');
-    createProduct(
-        'banana',
-        Math.floor(Math.random() * 1000000),
-        'Active',
-        new Date().toISOString(),
-        new Date().toISOString(),
-        null
-    );
-    createProduct(
-        'banana',
-        Math.floor(Math.random() * 1000000),
-        'Active',
-        new Date().toISOString(),
-        new Date().toISOString(),
-        null
-    );createProduct(
-        'banana',
-        Math.floor(Math.random() * 1000000),
-        'Active',
-        new Date().toISOString(),
-        new Date().toISOString(),
-        null
-    );createProduct(
-        'banana',
-        Math.floor(Math.random() * 1000000),
-        'Active',
-        new Date().toISOString(),
-        new Date().toISOString(),
-        null
-    );createProduct( 
-        'banana',
-        Math.floor(Math.random() * 1000000),
-        'Active',
-        new Date().toISOString(),
-        new Date().toISOString(),
-        null
-    );
 }).catch((err) => {
     console.error('Error initializing database', err);
 });
@@ -76,9 +38,7 @@ async function createUser(name, identifier) {
 
 
 async function massAddUser() {
-    createUser('John Doe', '123456789');
-    createUser('Jane Doe', '987654321');
-    createUser('John Smith', '123123123');
-    createUser('Jane Smith', '321321321');
+    createUser('John Doe', 'johdoe23');
+    createUser('Jane Doe', 'jandoe27');
     
 }

@@ -58,7 +58,7 @@ const Inventory: React.FC = () => {
             </table>
             {
                 isModalOpen ?
-                    <ProductModule initialProduct={productModule} onOutsideClick={() => setIsModalOpen(false)}/>
+                    <ProductModule product={productModule} onOutsideClick={() => setIsModalOpen(false)}/>
                     : null
             }
         </div>

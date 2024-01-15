@@ -7,7 +7,7 @@ interface IQRScanner {
     onOutsideClick: () => void;
 }
 
-const QRScanner: React.FC<IQRScanner> = ({ onOutsideClick }) => {
+const QRScanner: React.FC<IQRScanner> = ({ onOutsideClick }) => { 
 
     const [scanResult, setScanResult] = useState<string | null>(null);
     const [isScanning, setIsScanning] = useState(false);
@@ -25,7 +25,7 @@ const QRScanner: React.FC<IQRScanner> = ({ onOutsideClick }) => {
         qrScanner.current.start({ facingMode: 'environment' }, config, (decodedText: string, result: Html5QrcodeResult) => {
             console.log('decodedText', decodedText);
             console.log('decodedResult', result);
-            setScanResult('Completed');
+            setScanResult(decodedText);
         }, qrCodeErrorCallback);
         setIsScanning(true);   
     }, [isScanning]);
