@@ -2,7 +2,7 @@ import React from 'react';
 import { IProduct } from '../../types';
 import './ProductModule.css';
 import Veil from '../Veil/Veil';
-
+import QRCode from 'qrcode.react';
 interface IProductModule {
     product: IProduct | null;
     onOutsideClick?: () => void;
@@ -51,12 +51,25 @@ const ProductModule: React.FC<IProductModule> = ({ product, onOutsideClick }) =>
                 { 
                     product ? (
                         <>
-                            <div><span>Id: {product.id}</span></div>
-                            <div><span>Product : {product.name}</span></div>
-                            <div><span>Status : {product.status}</span></div>
-                            <div><span>{product.borrower ? 'Lent to :' + product.borrower : ''}</span></div>
-                            <div><span>{product.lendingDate ?  ('Lent at : ' + new Date(product.lendingDate).toLocaleString()) : ''}</span></div>
-                            <div><span>{product.lendingExpiration ? ('Expiration : ' + new Date(product.lendingExpiration).toLocaleString()) : ''}</span></div>
+                            <div style={{ display:'inline-flex' }}>
+                                <div style={{ paddingRight:'10px' }}>
+                                    <div><span>Id: {product.id}</span></div>
+                                    <div><span>Product : {product.name}</span></div>
+                                    <div><span>Status : {product.status}</span></div>
+                                    <div><span>{product.borrower ? 'Lent to :' + product.borrower : ''}</span></div>
+                                    <div><span>{product.lendingDate ?  ('Lent at : ' + new Date(product.lendingDate).toLocaleString()) : ''}</span></div>
+                                    <div><span>{product.lendingExpiration ? ('Expiration : ' + new Date(product.lendingExpiration).toLocaleString()) : ''}</span></div>
+                                </div>
+                                {
+                                    product.identifier ? (
+                                        <div>
+                                            <QRCode value={product.identifier.toString()} />
+                                        </div>
+                                    ) : (
+                                        null
+                                    )
+                                }
+                            </div>
                             <div>
                                 <button onClick={updateProduct} name="RETURN">Return</button>
                                 <button onClick={updateProduct} name="BORROW">Borrow</button>

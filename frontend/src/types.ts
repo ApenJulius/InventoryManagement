@@ -13,6 +13,7 @@ export enum ProductStatus{
 
 export interface IProduct {
     id?: number;
+    identifier?: string;
     name?: string;
     borrower?: string;
     lendingDate?: string;

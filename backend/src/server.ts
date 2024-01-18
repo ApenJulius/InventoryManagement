@@ -43,15 +43,15 @@ app.post('/qrScan', async (req, res) => {
         return;
     }
     const product = await Database.getRepository(Products).find({ where: { identifier: req.body.qrCode } });
-    console.log(product);
-    res.send(product);
+    console.log(product); 
+    res.send(product[0]); 
     // TODO: Implement this endpoint with returning he product in pop up, or question of creating
 
 });
 
 app.post('/products/add', async (req, res) => {
     console.log('Received request to add products');
-
+ 
     const productName: string = req.body.name;
     const productAmount: number = req.body.amount;
 
